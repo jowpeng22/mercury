@@ -10,13 +10,19 @@
 	</parent>
 	<artifactId>config-service</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>common</name>
+	<name>config-service</name>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-server -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
