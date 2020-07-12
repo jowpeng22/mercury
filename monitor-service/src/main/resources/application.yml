@@ -7,3 +7,8 @@ spring:
     name: monitor-service
 server:
   port: 8766
+turbine:
+  aggregator:
+    clusterConfig: default
+  app-config: user-service,blog-service
+  cluster-name-expression: new String("default")
