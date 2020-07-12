@@ -1,10 +1,10 @@
-package com.joemaster.blogservice;
+package com.joemaster.zipkinservice;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlogServiceApplicationTests {
+class CommonApplicationTests {
 
 	@Test
 	void contextLoads() {
