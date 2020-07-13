@@ -37,7 +37,7 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("USERSERVICE-对外接口文档")
-                .contact("JOE MASTER")
+                .contact("JOE MASTER PENG")
                 .description("如有问题请联系XXX")
 //                .termsOfServiceUrl("http://www.uspace.com")
                 .version("1.0")
