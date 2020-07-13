@@ -12,3 +12,8 @@ turbine:
     clusterConfig: default
   app-config: user-service,blog-service
   cluster-name-expression: new String("default")
+management:
+  security:
+    enabled: false
+
+
