@@ -1,11 +1,11 @@
-package com.joemaster.blogservice.exceptioin;
+package com.joemaster.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
  * 通用错误码
- * Created by pengzq on 2020/5/18.
+ * Created by pengzq on 2020/06/17.
  */
 @Getter
 @AllArgsConstructor
@@ -20,7 +20,6 @@ public enum ErrorCode {
     TOKEN_IS_NOT_MATCH_USER(1003,"请使用自己的token进行接口请求"),
 
     BLOG_IS_NOT_EXIST(2001,"该博客不存在");
-
     private int code;
     private String msg;
 

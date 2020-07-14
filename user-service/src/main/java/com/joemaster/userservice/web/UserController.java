@@ -1,7 +1,7 @@
 package com.joemaster.userservice.web;
 
+import com.joemaster.common.dto.RespDTO;
 import com.joemaster.userservice.annotation.SysLogger;
-import com.joemaster.userservice.dto.RespDTO;
 import com.joemaster.userservice.entity.User;
 import com.joemaster.userservice.service.UserService;
 import com.joemaster.userservice.util.BPwdEncoderUtils;
@@ -42,7 +42,7 @@ public class UserController {
     @PostMapping("/{username}")
     @PreAuthorize("hasRole('USER')")
     @SysLogger("getUserInfo")
-    // @PreAuthorize("hasAnyAuthority('ROLE_USER')")
+//     @PreAuthorize("hasAnyAuthority('ROLE_USER')")
     public RespDTO getUserInfo(@PathVariable("username") String username){
         //参数判读省略
         User user = userService.getUserInfo(username);

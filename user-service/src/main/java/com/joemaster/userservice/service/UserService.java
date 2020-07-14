@@ -1,15 +1,14 @@
 package com.joemaster.userservice.service;
 
+import com.joemaster.common.dto.RespDTO;
+import com.joemaster.common.exception.CommonException;
+import com.joemaster.common.exception.ErrorCode;
 import com.joemaster.userservice.client.AuthServiceClient;
 import com.joemaster.userservice.dao.UserRepository;
 import com.joemaster.userservice.dto.LoginDTO;
-import com.joemaster.userservice.dto.RespDTO;
 import com.joemaster.userservice.entity.JWT;
 import com.joemaster.userservice.entity.User;
-import com.joemaster.userservice.exception.CommonException;
-import com.joemaster.userservice.exception.ErrorCode;
 import com.joemaster.userservice.util.BPwdEncoderUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,10 +17,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private AuthServiceClient authServiceClient;
+    private final UserRepository userRepository;
+    private final AuthServiceClient authServiceClient;
+
+    public UserService(UserRepository userRepository, AuthServiceClient authServiceClient) {
+        this.userRepository = userRepository;
+        this.authServiceClient = authServiceClient;
+    }
 
     public User createUser(User user){
         return  userRepository.save(user);

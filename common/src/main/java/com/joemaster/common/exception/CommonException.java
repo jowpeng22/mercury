@@ -1,8 +1,6 @@
-package com.joemaster.blogservice.exceptioin;
+package com.joemaster.common.exception;
 
-/**
- * Created by pengzq on 2020/5/18.
- */
+
 public class CommonException extends RuntimeException {
 
     private ErrorCode errorCode;

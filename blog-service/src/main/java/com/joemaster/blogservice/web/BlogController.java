@@ -1,12 +1,12 @@
 package com.joemaster.blogservice.web;
 
 import com.joemaster.blogservice.annotation.SysLogger;
-import com.joemaster.blogservice.dto.RespDTO;
 import com.joemaster.blogservice.entity.Blog;
-import com.joemaster.blogservice.exceptioin.CommonException;
-import com.joemaster.blogservice.exceptioin.ErrorCode;
 import com.joemaster.blogservice.service.BlogService;
 import com.joemaster.blogservice.util.UserUtils;
+import com.joemaster.common.dto.RespDTO;
+import com.joemaster.common.exception.CommonException;
+import com.joemaster.common.exception.ErrorCode;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -45,7 +45,7 @@ public class BlogController {
             List<Blog> blogs = blogService.findBlogs(username);
             return RespDTO.onSuc(blogs);
         }else {
-            throw new CommonException(ErrorCode.TOKEN_IS_NOT_MATCH_USER);
+            throw new CommonException(ErrorCode.BLOG_IS_NOT_EXIST);
         }
     }
 
