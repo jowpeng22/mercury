@@ -8,7 +8,7 @@
 #Feign: 声明式服务调用，用于消费服务
 #Ribbon: 负载均衡
 #Hystrix: 熔断器
-#Hystrix Dashboard: ；峪断然仪表盘，用于监控；熔断器的状况
+#Hystrix Dashboard: ；熔断器仪表盘，用于监控；熔断器的状况
 #Turbine: 聚合多个Hystrix Dashboard
 #Spring Cloud Sleuth: 集成zipkin,用于服务链路追踪
 #Spring BootAdmin: 聚合监控微服务的状况
