@@ -13,7 +13,7 @@
 #Spring Cloud Sleuth: 集成zipkin,用于服务链路追踪
 #Spring BootAdmin: 聚合监控微服务的状况
 #Zuul: 服务网关，用于服务智能路由、负载均衡
-#Spring Data JPA: 数据库采用 ySQL ，实体对象持久化采用 JPA
+#Spring Data JPA: 数据库采用 mySQL ，实体对象持久化采用 JPA
 #Swagger: API 接口文档组件
 #RESTfulAPI: 本案例的接口采用 RESTful 风格
 #RabbitMQ: 消息服务器，用于发送日志消息

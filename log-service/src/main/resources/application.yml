@@ -1,9 +1,9 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-spring:
-  application:
-    name: log-service
-server:
-  port: 9997
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#spring:
+#  application:
+#    name: log-service
+#server:
+#  port: 9997
