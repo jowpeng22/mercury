@@ -42,9 +42,6 @@ public class ApiController {
     @SysLogger("registry")
     public RespDTO createUser(@RequestBody @Valid UserCreatedRequestParam param){
 
-//        if(StringUtils.isBlank(param.getUsername()) || StringUtils.isBlank(param.getPassword())){
-//            throw new CommonException(ErrorCode.BAD_PARAMETER);
-//        }
         User userInfo = userService.getUserInfo(param.getUsername());
         if(userInfo != null){
             throw new CommonException(ErrorCode.USER_REGISTERED);

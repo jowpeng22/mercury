@@ -13,7 +13,7 @@ public enum ErrorCode {
 
     OK(0, ""),
     FAIL(-1, "操作失败"),
-    BAD_PARAMETER(-500, "参数异常"),
+    BAD_PARAMETER(-3, "参数异常"),
     RPC_ERROR(-2,"远程调度失败"),
     USER_NOT_FOUND(1000,"用户不存在"),
     USER_PASSWORD_ERROR(1001,"密码错误"),
