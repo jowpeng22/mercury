@@ -1,8 +1,8 @@
 package com.joemaster.blogservice.client;
 
 import com.joemaster.blogservice.client.hystrix.UserServiceHystrix;
-import com.joemaster.blogservice.dto.RespDTO;
 import com.joemaster.blogservice.entity.User;
+import com.joemaster.common.dto.RespDTO;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,7 @@
 package com.joemaster.userservice.exception;
 
-import com.joemaster.userservice.dto.RespDTO;
+import com.joemaster.common.dto.RespDTO;
+import com.joemaster.common.exception.CommonException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -18,9 +19,8 @@ public class CommonExceptionHandler {
     public ResponseEntity handleException(Exception e) {
         RespDTO resp = new RespDTO();
         CommonException commonException = (CommonException) e;
-        resp.code = commonException.getCode();
         resp.error = e.getMessage();
-
+        resp.code = commonException.getCode();
         return new ResponseEntity(resp, HttpStatus.OK);
     }
 }

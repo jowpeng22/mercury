@@ -1,6 +1,7 @@
 package com.joemaster.blogservice.exceptioin;
 
-import com.joemaster.userservice.dto.RespDTO;
+import com.joemaster.common.dto.RespDTO;
+import com.joemaster.common.exception.CommonException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

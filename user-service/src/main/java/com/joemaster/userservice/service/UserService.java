@@ -47,7 +47,7 @@ public class UserService {
         if(null==jwt){
             throw new CommonException(ErrorCode.GET_TOKEN_FAIL);
         }
-        LoginDTO loginDTO=new LoginDTO();
+        LoginDTO loginDTO = new LoginDTO();
         loginDTO.setUser(user);
         loginDTO.setToken(jwt.getAccess_token());
         return RespDTO.onSuc(loginDTO);

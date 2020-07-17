@@ -1,7 +1,7 @@
 package com.joemaster.userservice.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.joemaster.userservice.annotation.SysLogger;
+import com.joemaster.common.annotation.SysLogger;
 import com.joemaster.userservice.entity.SysLog;
 import com.joemaster.userservice.service.LoggerService;
 import com.joemaster.userservice.util.HttpUtils;

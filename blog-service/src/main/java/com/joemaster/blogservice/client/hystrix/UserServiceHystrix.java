@@ -1,8 +1,8 @@
 package com.joemaster.blogservice.client.hystrix;
 
 import com.joemaster.blogservice.client.UserServiceClient;
-import com.joemaster.blogservice.dto.RespDTO;
 import com.joemaster.blogservice.entity.User;
+import com.joemaster.common.dto.RespDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
