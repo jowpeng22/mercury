@@ -1,5 +1,6 @@
 package com.joemaster.common.dto;
 
+import com.joemaster.common.util.HttpConstant;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -17,6 +18,13 @@ public class RespDTO<T> implements Serializable{
     public static RespDTO onSuc(Object data) {
         RespDTO resp = new RespDTO();
         resp.data = data;
+        return resp;
+    }
+
+    public static RespDTO result(HttpConstant object) {
+        RespDTO resp = new RespDTO();
+        resp.code = object.getCode();
+        resp.data = object.getMsg();
         return resp;
     }
 }
