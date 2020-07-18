@@ -6,6 +6,7 @@ import com.joemaster.common.exception.CommonException;
 import com.joemaster.common.exception.ErrorCode;
 import com.joemaster.common.util.HttpConstant;
 import com.joemaster.userservice.api.request.UserCreatedRequestParam;
+import com.joemaster.userservice.api.request.UserInfoRequestParam;
 import com.joemaster.userservice.entity.User;
 import com.joemaster.userservice.service.UserService;
 import com.joemaster.userservice.util.BPwdEncoderUtils;
@@ -13,7 +14,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,5 +51,17 @@ public class ApiController {
         user.setPassword(BPwdEncoderUtils.BCryptPassword(param.getPassword()));
         userService.createUser(user);
         return RespDTO.result(HttpConstant.OK);
+    }
+
+    @ApiOperation(value = "查询用户信息", notes = "username为必选项")
+    @ApiImplicitParam(name = "param",value = "用户实体",required = true,dataType = "UserInfoRequestParam")
+    @PostMapping("/user/info")
+    @SysLogger("user_info")
+    public RespDTO getUser(@RequestBody @Valid UserInfoRequestParam param){
+        User userInfo = userService.getUserInfo(param.getUsername());
+        if(null == userInfo){
+            throw new CommonException(ErrorCode.USER_NOT_FOUND);
+        }
+        return RespDTO.onSuc(userInfo);
     }
 }
