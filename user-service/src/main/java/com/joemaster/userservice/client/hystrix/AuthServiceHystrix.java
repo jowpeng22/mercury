@@ -14,7 +14,7 @@ public class AuthServiceHystrix implements AuthServiceClient{
 
     @Override
     public JWT getToken(String authorization, String type, String username, String password) {
-        log.info("--------opps getToken hystrix---------");
+        log.error("username:{} getToken hystrix failed",username);
         return null;
     }
 }
