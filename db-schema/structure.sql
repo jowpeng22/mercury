@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR (64) NOT NULL COMMENT '用户名',
-  `password` int (11) NOT NULL DEFAULT 0 COMMENT '密码错误次数',
+  `password` VARCHAR (128) NOT NULL DEFAULT 0 COMMENT '密码错误次数',
   `create_date` date NOT NULL COMMENT '创建日期',
   `update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),

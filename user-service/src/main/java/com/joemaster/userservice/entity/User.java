@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Create by pengzq on 2020/7/12
@@ -21,10 +24,16 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,  unique = true)
-    private String username;
+    @Column(name = "user_name",nullable = false,  unique = true)
+    private String userName;
 
     @Column
     private String password;
+
+    @Column
+    private Date createDate;
+
+    @Column
+    private Date updateAt;
 
 }

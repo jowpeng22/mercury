@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Create by pengzq on 2020/7/12
@@ -47,8 +49,10 @@ public class ApiController {
             throw new CommonException(ErrorCode.USER_REGISTERED);
         }
         User user = new User();
-        user.setUsername(param.getUsername());
+        user.setUserName(param.getUsername());
         user.setPassword(BPwdEncoderUtils.BCryptPassword(param.getPassword()));
+        user.setCreateDate(new Date());
+        user.setUpdateAt(new Date());
         userService.createUser(user);
         return RespDTO.result(HttpConstant.OK);
     }

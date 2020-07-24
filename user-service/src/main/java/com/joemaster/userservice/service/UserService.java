@@ -26,16 +26,16 @@ public class UserService {
     }
 
     public User createUser(User user){
-        return  userRepository.save(user);
+        return userRepository.save(user);
     }
 
     public User getUserInfo(String username){
-        return userRepository.findFirstByUsername(username);
+        return userRepository.findFirstByUserName(username);
     }
 
 
     public RespDTO login(String username , String password){
-        User user = userRepository.findFirstByUsername(username);
+        User user = userRepository.findFirstByUserName(username);
         if(null == user){
             throw new CommonException(ErrorCode.USER_NOT_FOUND);
         }
