@@ -19,6 +19,10 @@
 #RabbitMQ: 消息服务器，用于发送日志消息
 
 
+#keytool -genkeypair -alias pzq-jwt -validity 3650 -keyalg RSA -dname "CN=jwt,OU=jwt,O=jwt,L=zurich,S=zurich,C=CH" -keypass pzq123 -keystore pzq-jwt.jks -storepass pzq123
+#keytool -list -rfc --keystore pzq-jwt.jks | openssl x509 -inform pem -pubkey
+
+
 
 
 
