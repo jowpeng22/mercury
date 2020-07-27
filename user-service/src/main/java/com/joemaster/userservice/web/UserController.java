@@ -46,7 +46,6 @@ public class UserController {
     @PostMapping("/{username}")
     @PreAuthorize("hasRole('USER')")
     @SysLogger("getUserInfo")
-    @ApiIgnore
 //     @PreAuthorize("hasAnyAuthority('ROLE_USER')")
     public RespDTO getUserInfo(@PathVariable("username") String username){
         //参数判读省略

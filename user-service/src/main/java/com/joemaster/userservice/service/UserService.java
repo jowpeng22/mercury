@@ -42,7 +42,7 @@ public class UserService {
         if(!BPwdEncoderUtils.matches(password,user.getPassword())){
             throw new CommonException(ErrorCode.USER_PASSWORD_ERROR);
         }
-        JWT jwt = authServiceClient.getToken("Basic dWFhLXNlcnZpY2U6MTIzNDU2", password, username, password);
+        JWT jwt = authServiceClient.getToken("Basic dWFhLXNlcnZpY2U6MTIzNDU2", "password", username, password);
         // 获得用户菜单
         if(null==jwt){
             throw new CommonException(ErrorCode.GET_TOKEN_FAIL);
