@@ -52,6 +52,9 @@ public class ApiController {
         User user = new User();
         user.setUserName(param.getUsername());
         user.setPassword(BPwdEncoderUtils.BCryptPassword(param.getPassword()));
+        user.setNickName(param.getNickName());
+        user.setEmail(param.getEmail());
+        user.setTelephone(param.getTelephone());
         user.setCreateDate(new Date());
         user.setUpdateAt(new Date());
         userService.createUser(user);

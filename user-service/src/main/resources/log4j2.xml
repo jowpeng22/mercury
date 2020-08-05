@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" strict="true">
+
+    <Properties>
+        <Property name="log-dir">/ubox/logs/mercury/app</Property>
+        <Property name="daily-file">${log-dir}/daily.log</Property>
+        <Property name="ex-file">${log-dir}/exception.log</Property>
+        <Property name="other-file">${log-dir}/framework.log</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout>
+                <pattern>[%d][%X{requestId}][%t]%highlight{[%p] (%F:%L) - %m}{FATAL=red, ERROR=Bright red,
+                    WARN=yellow,INFO=Green,DEBUG=White,TRACE=Magenta}%n%throwable
+                </pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="ERROR" fileName="${ex-file}" filePattern="${ex-file}-%d{yyyyMMdd}">
+            <PatternLayout>
+                <pattern>[%d][%X{requestId}][%t][%p] (%F:%L) - %m%n%ex</pattern>
+            </PatternLayout>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1024MB"/>
+            </Policies>
+        </RollingFile>
+
+
+        <RollingFile name="BIZ" fileName="${daily-file}" filePattern="${daily-file}%d{yyyyMMdd}">
+            <PatternLayout>
+                <pattern>[%d][%X{requestId}][%t][%p] - %m%n</pattern>
+                <!--<pattern>[%d] %X{remoteIp} [%t][%p] - %m%n</pattern>-->
+            </PatternLayout>
+
+            <Filters>
+                <ThresholdFilter level="FATAL" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="OTHER" fileName="${other-file}" filePattern="${other-file}%d{yyyyMMdd}">
+            <PatternLayout>
+                <!--<pattern>[%d][%X{requestId}][%p] (%F:%L) - %m%n%throwable</pattern>-->
+                <pattern>[%d][%X{requestId}][%t]%highlight{[%p] (%F:%L) - %m}{FATAL=red, ERROR=Bright red,
+                    WARN=yellow,INFO=White,DEBUG=Green,TRACE=Magenta}%n%throwable
+                </pattern>
+            </PatternLayout>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!--<Logger name="com.ubox.alpha.web" level="INFO" additivity="false">
+            <AppenderRef ref="BIZ"/>
+            <AppenderRef ref="ERROR"/>
+        </Logger>-->
+
+
+        <Root level="INFO">
+            <AppenderRef ref="OTHER"/>
+            <AppenderRef ref="ERROR"/>
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

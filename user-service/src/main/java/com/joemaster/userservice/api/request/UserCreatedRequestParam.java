@@ -17,6 +17,16 @@ public class UserCreatedRequestParam {
     private String username;
 
     @NotBlank(message = "密码不能为空")
-    @ApiModelProperty(notes = "密码",required = true)
+    @ApiModelProperty(notes = "密码",required = true,position = 1)
     private String password;
+
+    @ApiModelProperty(notes = "邮箱",position = 4)
+    private String email;
+
+    @ApiModelProperty(notes = "手机号",position = 3)
+    private String telephone;
+
+    @ApiModelProperty(notes = "昵称",position = 2)
+    @JsonProperty("nick_name")
+    private String nickName;
 }

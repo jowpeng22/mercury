@@ -1,6 +1,8 @@
 package com.joemaster.userservice.entity;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +17,8 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+@DynamicInsert
+@DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
@@ -27,8 +31,16 @@ public class User implements Serializable {
     @Column(name = "user_name",nullable = false,  unique = true)
     private String userName;
 
+    private String nickName;
+
     @Column
     private String password;
+
+    private String telephone;
+
+    private String email;
+
+    private String avatar;
 
     @Column
     private Date createDate;
